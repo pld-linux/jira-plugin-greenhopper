@@ -39,6 +39,8 @@ Requires:	jira >= 4.1
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		pluginsdir	%{_sharedstatedir}/jira/plugins/installed-plugins
+
 %description
 Agile project management plugin for JIRA. GreenHopper is the perfect tool for
 managing your backlog, planning sprints and tracking your team through the
@@ -50,8 +52,9 @@ cp %{SOURCE0} .
 cp %{SOURCE1} .
 
 %install
-install -d $RPM_BUILD_ROOT%{_datadir}/jira/WEB-INF/lib
-cp jira-greenhopper-plugin-%{version}.jar $RPM_BUILD_ROOT%{_datadir}/jira/WEB-INF/lib/jira-greenhopper-plugin-%{version}.jar
+install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{pluginsdir}}
+cp jira-greenhopper-plugin-%{version}.jar $RPM_BUILD_ROOT%{_datadir}/%{name}/jira-greenhopper-plugin-%{version}.jar
+ln -s %{_datadir}/%{name}/jira-greenhopper-plugin-%{version}.jar $RPM_BUILD_ROOT%{pluginsdir}/jira-greenhopper-plugin-%{version}.jar
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -59,4 +62,6 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Atlassian_EULA_3.0.pdf
-%{_datadir}/jira/WEB-INF/lib/jira-greenhopper-plugin-%{version}.jar
+%dir %{_datadir}/%{name}
+%{_datadir}/%{name}/jira-greenhopper-plugin-%{version}.jar
+%{pluginsdir}/jira-greenhopper-plugin-%{version}.jar
