@@ -23,7 +23,7 @@ wget -c http://www.atlassian.com/about/licensing/Atlassian_EULA_3.0.pdf
 Summary:	Agile project management plugin for JIRA
 Name:		jira-plugin-greenhopper
 Version:	4.4.1
-Release:	0.1
+Release:	1
 License:	Proprietary, not distributable
 Group:		Libraries/Java
 Source0:	jira-greenhopper-plugin-%{version}.jar
