@@ -26,7 +26,7 @@ Version:	4.4.1
 Release:	0.1
 License:	Proprietary, not distributable
 Group:		Libraries/Java
-Source0:	jira-greenhopper-plugin-4.4.1.jar
+Source0:	jira-greenhopper-plugin-%{version}.jar
 # NoSource0-md5:	042297a4412d2ee4266f56e6a81e6dbf
 NoSource:	0
 Source1:	Atlassian_EULA_3.0.pdf
@@ -42,16 +42,17 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		pluginsdir	%{_sharedstatedir}/jira/plugins/installed-plugins
 
 %description
-Agile project management plugin for JIRA. GreenHopper is the perfect tool for
-managing your backlog, planning sprints and tracking your team through the
-entire release process.
+Agile project management plugin for JIRA. GreenHopper is the perfect
+tool for managing your backlog, planning sprints and tracking your
+team through the entire release process.
 
 %prep
-%setup -c -T
+%setup -q -c -T
 cp %{SOURCE0} .
 cp %{SOURCE1} .
 
 %install
+rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{pluginsdir}}
 cp jira-greenhopper-plugin-%{version}.jar $RPM_BUILD_ROOT%{_datadir}/%{name}/jira-greenhopper-plugin-%{version}.jar
 ln -s %{_datadir}/%{name}/jira-greenhopper-plugin-%{version}.jar $RPM_BUILD_ROOT%{pluginsdir}/jira-greenhopper-plugin-%{version}.jar
