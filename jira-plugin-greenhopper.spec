@@ -12,9 +12,12 @@
 #
 # See Atlassian_EULA_3.0.pdf for more details.
 
+# RELEASE INFO:
+# This version of greenhopper was released on the 7th September 2010
+
 %if 0
 # Download sources manually:
-wget -c http://downloads.atlassian.com/software/greenhopper/downloads/jira-greenhopper-plugin-4.4.1.jar
+wget -c http://downloads.atlassian.com/software/greenhopper/downloads/jira-greenhopper-plugin-5.2.2.jar
 wget -c http://www.atlassian.com/about/licensing/Atlassian_EULA_3.0.pdf
 %endif
 
@@ -22,12 +25,12 @@ wget -c http://www.atlassian.com/about/licensing/Atlassian_EULA_3.0.pdf
 
 Summary:	Agile project management plugin for JIRA
 Name:		jira-plugin-greenhopper
-Version:	4.4.1
+Version:	5.2.2
 Release:	1
 License:	Proprietary, not distributable
 Group:		Libraries/Java
 Source0:	jira-greenhopper-plugin-%{version}.jar
-# NoSource0-md5:	042297a4412d2ee4266f56e6a81e6dbf
+# NoSource0-md5:	b46565a475433a3123b8d0a845098081
 NoSource:	0
 Source1:	Atlassian_EULA_3.0.pdf
 # NoSource1-md5:	9e87088024e3c5ee2e63a72a3e99a6cb
