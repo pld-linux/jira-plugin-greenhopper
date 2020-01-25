@@ -21,7 +21,6 @@ wget -c http://downloads.atlassian.com/software/greenhopper/downloads/jira-green
 wget -c http://www.atlassian.com/about/licensing/Atlassian_EULA_3.0.pdf
 %endif
 
-%include	/usr/lib/rpm/macros.java
 
 Summary:	Agile project management plugin for JIRA
 Name:		jira-plugin-greenhopper
